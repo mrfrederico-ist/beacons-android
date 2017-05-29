@@ -4,6 +4,8 @@ import android.annotation.TargetApi;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothManager;
 import android.bluetooth.le.BluetoothLeAdvertiser;
+import android.content.Context;
+import android.content.pm.PackageManager;
 import android.os.Build;
 
 import com.uriio.beacons.Util;
@@ -135,9 +137,9 @@ public class AdvertisersManager {
     public boolean canAdvertise() {
         if (null != mBleAdvertiser) return true;
 
-        if (!mBluetoothAdapter.isMultipleAdvertisementSupported()) {
-            return false;
-        }
+        //if (!mBluetoothAdapter.isMultipleAdvertisementSupported()) {
+        //    return false;
+        // }
 
         mBleAdvertiser = mBluetoothAdapter.getBluetoothLeAdvertiser();
         return null != mBleAdvertiser;
